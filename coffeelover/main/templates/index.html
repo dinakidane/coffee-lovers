@@ -1,0 +1,36 @@
+
+Certainly! Below is a simple example of the content for the index.html template, which extends the base.html template.
+
+html
+Copy code
+{% extends 'base.html' %}
+
+{% block title %}Home - Coffee Lover Blog{% endblock %}
+
+{% block content %}
+    <div class="jumbotron">
+        <h1 class="display-4">Welcome to Coffee Lover Blog!</h1>
+        <p class="lead">Explore and share your favorite coffee experiences with other coffee enthusiasts.</p>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <h2>Latest Coffee Recommendations</h2>
+            <!-- Add your latest coffee recommendations or blog posts here -->
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et ipsum nec tortor aliquet lacinia. Praesent fermentum augue nec neque ullamcorper, nec scelerisque turpis tincidunt.</p>
+            <!-- Repeat the above block for more recommendations -->
+
+            <!-- Add pagination if needed -->
+        </div>
+
+        <div class="col-md-4">
+            <h2>Top Contributors</h2>
+            <!-- Add a list of top contributors or users here -->
+            <ul class="list-group">
+                <li class="list-group-item">User 1</li>
+                <li class="list-group-item">User 2</li>
+                <!-- Add more users as needed -->
+            </ul>
+        </div>
+    </div>
+{% endblock %}
