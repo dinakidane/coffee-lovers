@@ -3,6 +3,10 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from .forms import CommentForm
+from .models import Comment
+from django.contrib.auth.views import RegistrationView
+from django.urls import reverse_lazy
+
 
 def index(request):
     return render(request, 'index.html')
@@ -39,3 +43,12 @@ def add_comment(request):
         form = CommentForm()
 
     return render(request, 'index.html', {'form': form})
+
+class CustomRegistrationView(RegistrationView):
+    success_url = reverse_lazy('index.html')  # Redirect to the homepage after successful registration
+
+    def register(self, form):
+        response = super().register(form)
+        # You can add additional logic here if needed
+        return response
+
