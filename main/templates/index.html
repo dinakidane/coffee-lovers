@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - Coffee Lover Blog{% endblock %}
+
+{% block content %}
+    <div class="jumbotron">
+        <h1 class="display-4">Welcome to Coffee Lover Blog!</h1>
+        <h3>Do you consider yourself to be a coffee lover?</h3>
+        <p class="lead">Explore and share your favorite coffee experiences with other coffee enthusiasts.</p>
+    </div>
+
+    <div class="row">
+       
+        <div class="col-md-8">
+            <h2>Latest Coffee Recommendations</h2>
+        
+            <div class="card mb-3">
+                <img src="coffee_image1.jpg" class="card-img-top" alt="Coffee Image 1">
+                <div class="card-body">
+                    <h5 class="card-title">Ethiopian Yirgacheffe</h5>
+                    <p class="card-text">This single-origin coffee from Ethiopia is known for its bright acidity and floral notes. It's a must-try for coffee connoisseurs.</p>
+                </div>
+            </div>
+        
+            <div class="card mb-3">
+                <img src="coffee_image2.jpg" class="card-img-top" alt="Coffee Image 2">
+                <div class="card-body">
+                    <h5 class="card-title">Colombian Supremo</h5>
+                    <p class="card-text">Colombian Supremo is a well-balanced coffee with medium acidity and a rich, full-bodied flavor profile. Perfect for a morning pick-me-up.</p>
+                </div>
+            </div>
+        
+            <div class="card mb-3">
+                <img src="coffee_image3.jpg" class="card-img-top" alt="Coffee Image 3">
+                <div class="card-body">
+                    <h5 class="card-title">Brazilian Santos</h5>
+                    <p class="card-text">Known for its smooth and nutty flavor, Brazilian Santos is a great choice for those who enjoy a mild and approachable coffee.</p>
+                </div>
+            </div>
+            <!-- Display existing comments -->
+            {% for comment in comments %}
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ comment.user.username }} - {{ comment.created_at }}</h5>
+                        <p class="card-text">{{ comment.coffee_experience }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+
+                <!-- Comment form for logged-in users -->
+            {% if user.is_authenticated %}
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Share Your Coffee Experience</h5>
+                        <form method="post" action="{% url 'add_comment' %}">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            {% endif %}
+        
+            <!-- Add more cards for additional coffee recommendations -->
+        
+            <!-- Add pagination if needed -->
+        </div>
+        
+
+        <div class="col-md-4">
+            <h2>Top Contributors</h2>
+        
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <img src="user1_avatar.jpg" class="mr-2" alt="User 1 Avatar" width="32" height="32">
+                    User 1
+                    <span class="badge badge-primary badge-pill">100 posts</span>
+                </li>
+                <li class="list-group-item">
+                    <img src="user2_avatar.jpg" class="mr-2" alt="User 2 Avatar" width="32" height="32">
+                    User 2
+                    <span class="badge badge-primary badge-pill">85 posts</span>
+                </li>
+                <li class="list-group-item">
+                    <img src="user3_avatar.jpg" class="mr-2" alt="User 3 Avatar" width="32" height="32">
+                    User 3
+                    <span class="badge badge-primary badge-pill">72 posts</span>
+                </li>
+                <!-- Add more list items for additional contributors -->
+            </ul>
+        </div>
+        
+    </div>
+{% endblock %}

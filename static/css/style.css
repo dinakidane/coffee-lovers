@@ -1,0 +1,62 @@
+/* Reset some default styles */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Apply a warm background color to the body */
+body {
+    background-color: #f5f2e9;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Navbar styling */
+.navbar {
+    background-color: #654321;  /* Dark brown */
+    color: #ffffff;
+}
+
+.navbar-brand {
+    color: #ffffff;
+}
+
+/* Jumbotron styling */
+.jumbotron {
+    background-color: #8B4513;  /* Saddle Brown */
+    color: #ffffff;
+    padding: 50px;
+    margin-bottom: 0;
+}
+
+/* Card styling */
+.card {
+    margin-bottom: 20px;
+    background-color: #d2b48c;  /* Tan */
+}
+
+/* Form styling */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Button styling */
+.btn {
+    background-color: #8B4513;  /* Saddle Brown */
+    color: #ffffff;
+}
+
+/* Top margin for the container */
+.container {
+    margin-top: 20px;
+}
+
+/* Footer styling */
+.footer {
+    background-color: #654321;  /* Dark brown */
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
