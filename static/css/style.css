@@ -4,59 +4,198 @@ body, h1, h2, h3, p, ul, li {
     padding: 0;
 }
 
-/* Apply a warm background color to the body */
 body {
-    background-color: #f5f2e9;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #362e28; /* Dark brown text */
+    background-color: #f5f1eb; /* Light cream background */
 }
 
-/* Navbar styling */
+
+/* Global Container */
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Navigation Bar */
 .navbar {
-    background-color: #654321;  /* Dark brown */
-    color: #ffffff;
+    background-color: #3e2723; /* Coffee brown */
+    padding: 15px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-brand {
-    color: #ffffff;
+    color: #fff;
+    font-size: 28px;
+    font-weight: bold;
+    margin-left: 20px;
 }
 
-/* Jumbotron styling */
-.jumbotron {
-    background-color: #8B4513;  /* Saddle Brown */
-    color: #ffffff;
-    padding: 50px;
-    margin-bottom: 0;
+.navbar-nav li {
+    margin-right: 15px;
+    margin-left: 20px;
 }
 
-/* Card styling */
-.card {
+.navbar-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav a:hover {
+    color: #a1887f; /* Light brown on hover */
+}
+
+/* Page Header */
+.page-header {
+    background-color: #795548; /* Dark brown header */
+    padding: 60px 0;
+    color: #fff;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.page-header h1 {
+    font-size: 48px;
+    font-weight: bold;
     margin-bottom: 20px;
-    background-color: #d2b48c;  /* Tan */
 }
 
-/* Form styling */
+.page-header p {
+    font-size: 18px;
+    color: #d7ccc8; /* Light brown text */
+}
+
+/* Main Content Area */
+.main-content {
+    margin-bottom: 40px;
+}
+
+/* Cards */
+.card {
+    border: none;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 20px; /* Added margin */
+    padding-right: 5px;
+}
+
+.mr-2 {
+    height: auto;
+    width: 180px;
+    height: 100px;
+    
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    max-width: max-content; /* Set a maximum width for the images */
+    max-height: 250px; /* Set a maximum height for the images */
+    border-bottom: 2px solid #a1887f;
+}
+
+.card-img-top {
+    max-width: 100%; /* Set a maximum width for the images */
+    max-height: 250px; /* Set a maximum height for the images */
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #3e2723; /* Coffee brown title */
+}
+
+.card-text {
+    color: #546e7a; /* Grayish blue text */
+}
+
+/* Footer */
+.footer {
+    background-color: #3e2723;
+    color: #fff;
+    padding: 40px 0;
+    text-align: center;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.footer p {
+    font-size: 16px;
+}
+
+/* Form Styles */
 .form-group {
     margin-bottom: 20px;
 }
 
-/* Button styling */
-.btn {
-    background-color: #8B4513;  /* Saddle Brown */
-    color: #ffffff;
+
+
+/* Comment Section */
+.comment-section {
+    margin-top: 40px;
 }
 
-/* Top margin for the container */
-.container {
-    margin-top: 20px;
+.row {
+    margin: 50px;
 }
 
-/* Footer styling */
+.comment {
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+}
+
+.comment p {
+    margin-bottom: 10px;
+    color: #362e28; /* Dark brown text in comments */
+}
+
+.comment-footer {
+    text-align: right;
+    color: #546e7a; /* Grayish blue text in footer */
+}
+
+/* Footer */
 .footer {
-    background-color: #654321;  /* Dark brown */
-    color: #ffffff;
+    background-color: #3e2723;
+    color: #fff;
+    padding: 10px 0; /* Smaller padding */
     text-align: center;
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 40px;
 }
+
+.footer p {
+    font-size: 16px;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .navbar-nav {
+        text-align: center;
+    }
+
+    .navbar-nav li {
+        display: inline-block;
+        margin: 0 10px;
+    }
+}
+

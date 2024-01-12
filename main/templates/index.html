@@ -8,47 +8,56 @@
         <br>
         <h3>Do you consider yourself to be a coffee lover?</h3>
         <br>
-        <p class="lead">Explore and share your favorite coffee experiences with other coffee enthusiasts.</p>
-        <br>
-        <p>Connect and help others by commenting down guides and tutorials on various coffee brewing methods, such as
+
+        <div class="lead"></div>
+            <p>Explore and share your favorite coffee experiences with other coffee enthusiasts.</p>
+            <br>
+            <p>Connect and help others by commenting down guides and tutorials on various coffee brewing methods, such as
             pour-over, French press, espresso, cold brew, etc.
             This may include tips for achieving the best flavors and aromas.</p>
-        <br>
-        <p>Write down reviews and recommendations for coffee-making equipment, such as coffee makers, grinders, and brewing
+            <br>
+            <p>Write down reviews and recommendations for coffee-making equipment, such as coffee makers, grinders, and brewing
             accessories.
-        </p>
-        <br>
-        <p>This is your time to connect with other coffee lovers who share the same interests as you!</p>
+            </p>
+            <br>
+            <p>This is your time to connect with other coffee lovers who share the same interests as you!</p>
+            <br>
+            <p><strong>Scroll down for the existing comments or register to add one!</strong></p>
+        </div>
     </div>
 
     <div class="row">
        
         <div class="col-md-8">
             <h2>Latest Coffee Recommendations</h2>
-        
+            <br>
             <div class="card mb-3">
-                <img src="ethiopian.jpg" class="card-img-top" alt="Ethiopian Yirgacheffe">
+                <img src="/static/images/ethiopian.jpg" class="card-img-top" alt="Ethiopian Yirgacheffe">
                 <div class="card-body">
                     <h5 class="card-title">Ethiopian Yirgacheffe</h5>
                     <p class="card-text">This single-origin coffee from Ethiopia is known for its bright acidity and floral notes. It's a must-try for coffee connoisseurs.</p>
                 </div>
             </div>
-        
+            <br>
             <div class="card mb-3">
-                <img src="/media/images/columbian.jpg" class="card-img-top" alt="Colombian Supremo">
+                <img src="/static/images/columbian.jpg" class="card-img-top" alt="Colombian Supremo">
                 <div class="card-body">
                     <h5 class="card-title">Colombian Supremo</h5>
                     <p class="card-text">Colombian Supremo is a well-balanced coffee with medium acidity and a rich, full-bodied flavor profile. Perfect for a morning pick-me-up.</p>
                 </div>
             </div>
-        
+            <br>
             <div class="card mb-3">
-                <img src="/media/images/brazillian.jpg" class="card-img-top" alt="Brazilian Santos">
+                <img src="/static/images/brazillian.jpg" class="card-img-top" alt="Brazilian Santos">
                 <div class="card-body">
                     <h5 class="card-title">Brazilian Santos</h5>
                     <p class="card-text">Known for its smooth and nutty flavor, Brazilian Santos is a great choice for those who enjoy a mild and approachable coffee.</p>
                 </div>
             </div>
+
+            <br>
+            <h3>Your experiences!</h3>
+            <br>
             <!-- Display existing comments -->
             {% for comment in comments %}
                 <div class="card mb-3">
@@ -56,6 +65,14 @@
                         <h5 class="card-title">{{ comment.user.username }} - {{ comment.created_at }}</h5>
                         <p class="card-text">{{ comment.coffee_experience }}</p>
                     </div>
+                    {% if user.is_authenticated %}
+                        {% if user.is_staff or user == comment.user %}
+                            <form method="post" action="{% url 'delete_comment' comment.id %}">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        {% endif %}
+                    {% endif %}
                 </div>
             {% endfor %}
 
@@ -63,7 +80,8 @@
             {% if user.is_authenticated %}
                 <div class="card mt-4">
                     <div class="card-body">
-                        <h5 class="card-title">Share Your Coffee Experience</h5>
+                        <h3>Share some coffee insight below!</h3>
+                        <br>
                         <form method="post" action="{% url 'add_comment' %}">
                             {% csrf_token %}
                             {{ form.as_p }}
@@ -77,22 +95,27 @@
 
         <div class="col-md-4">
             <h2>Welcome to our Top Contributers!</h2>
-        
+            <br>
             <ul class="list-group">
                 <li class="list-group-item">
-                    <img src="/media/images/user-1.jpg" class="mr-2" alt="User 1 Avatar" width="32" height="32">
+                    <img src="/static/images/user-1.jpg" class="mr-2" alt="User 1 Avatar" width="32" height="32">
+                    <br>
                     Hannah Rayheart
-                    <span class="badge badge-primary badge-pill">100 posts</span>
+                    <span class="badge badge-primary badge-pill"> 100 posts</span>
                 </li>
+                <br>
                 <li class="list-group-item">
-                    <img src="/media/images/user-2.jpg" class="mr-2" alt="User 2 Avatar" width="32" height="32">
+                    <img src="/static/images/user-2.jpg" class="mr-2" alt="User 2 Avatar" width="32" height="32">
+                    <br>
                     Jonathan Horan
-                    <span class="badge badge-primary badge-pill">85 posts</span>
+                    <span class="badge badge-primary badge-pill"> 85 posts</span>
                 </li>
+                <br>
                 <li class="list-group-item">
-                    <img src="/media/images/user-3.jpg" class="mr-2" alt="User 3 Avatar" width="32" height="32">
+                    <img src="/static/images/user-3.jpg" class="mr-2" alt="User 3 Avatar" width="32" height="32">
+                    <br>
                     Lillian Matthews
-                    <span class="badge badge-primary badge-pill">72 posts</span>
+                    <span class="badge badge-primary badge-pill"> 72 posts</span>
                 </li>
             </ul>
         </div>

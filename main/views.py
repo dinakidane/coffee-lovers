@@ -1,5 +1,5 @@
 # views.py
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, logout
@@ -60,3 +60,11 @@ def custom_logout(request):
     logout(request)
     return redirect('index')
 
+def delete_comment(request, comment_id):
+    comment = get_object_or_404(Comment, id=comment_id)
+
+    # Check if the user is an admin or the author of the comment
+    if request.user.is_authenticated and (request.user.is_staff or request.user == comment.user):
+        comment.delete()
+
+    return redirect('index')  # Redirect to the index page after deletion
