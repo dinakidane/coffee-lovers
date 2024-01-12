@@ -1,33 +1,15 @@
+# views.py
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.forms import UserCreationForm
+from django.views import View
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 from .forms import CommentForm
 from .models import Comment
-from django.contrib.auth.views import RegistrationView
-from django.urls import reverse_lazy
-
-
-def index(request):
-    return render(request, 'index.html')
-
-def login_view(request):
-    # Implement login logic here
-    return render(request, 'login.html')
-
-def logout_view(request):
-    # Implement logout logic here
-    return redirect('index')
-
-def register(request):
-    # Implement registration logic here
-    return render(request, 'register.html')
-
 
 def index(request):
     comments = Comment.objects.all()
     form = CommentForm()
-
     return render(request, 'index.html', {'comments': comments, 'form': form})
 
 @login_required
@@ -44,11 +26,37 @@ def add_comment(request):
 
     return render(request, 'index.html', {'form': form})
 
-class CustomRegistrationView(RegistrationView):
-    success_url = reverse_lazy('index.html')  # Redirect to the homepage after successful registration
+class CustomRegistrationView(View):
+    template_name = 'register.html'
 
-    def register(self, form):
-        response = super().register(form)
-        # You can add additional logic here if needed
-        return response
+    def get(self, request):
+        form = UserCreationForm()
+        return render(request, self.template_name, {'form': form})
+
+    def post(self, request):
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)  # Log in the user after successful registration
+            return redirect('index')
+        return render(request, self.template_name, {'form': form})
+
+class CustomLoginView(View):
+    template_name = 'login.html'
+
+    def get(self, request):
+        form = AuthenticationForm()
+        return render(request, self.template_name, {'form': form})
+
+    def post(self, request):
+        form = AuthenticationForm(data=request.POST)
+        if form.is_valid():
+            login(request, form.get_user())
+            return redirect('index')
+        return render(request, self.template_name, {'form': form})
+
+@login_required
+def custom_logout(request):
+    logout(request)
+    return redirect('index')
 
