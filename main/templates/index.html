@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
+
 {% block title %}Home - Coffee Lover Blog{% endblock %}
 
 {% block content %}
@@ -32,7 +33,7 @@
             <h2>Latest Coffee Recommendations</h2>
             <br>
             <div class="card mb-3">
-                <img src="/static/images/ethiopian.jpg" class="card-img-top" alt="Ethiopian Yirgacheffe">
+                <img src="{% static 'images/ethiopian.jpg' %}" class="card-img-top" alt="Ethiopian Yirgacheffe">
                 <div class="card-body">
                     <h5 class="card-title">Ethiopian Yirgacheffe</h5>
                     <p class="card-text">This single-origin coffee from Ethiopia is known for its bright acidity and floral notes. It's a must-try for coffee connoisseurs.</p>
@@ -40,7 +41,7 @@
             </div>
             <br>
             <div class="card mb-3">
-                <img src="/static/images/columbian.jpg" class="card-img-top" alt="Colombian Supremo">
+                <img src="{% static 'images/columbian.jpg' %}" class="card-img-top" alt="Colombian Supremo">
                 <div class="card-body">
                     <h5 class="card-title">Colombian Supremo</h5>
                     <p class="card-text">Colombian Supremo is a well-balanced coffee with medium acidity and a rich, full-bodied flavor profile. Perfect for a morning pick-me-up.</p>
@@ -48,7 +49,7 @@
             </div>
             <br>
             <div class="card mb-3">
-                <img src="/static/images/brazillian.jpg" class="card-img-top" alt="Brazilian Santos">
+                <img src="{% static 'images/brazillian.jpg' %}" class="card-img-top" alt="Brazilian Santos">
                 <div class="card-body">
                     <h5 class="card-title">Brazilian Santos</h5>
                     <p class="card-text">Known for its smooth and nutty flavor, Brazilian Santos is a great choice for those who enjoy a mild and approachable coffee.</p>
@@ -98,21 +99,21 @@
             <br>
             <ul class="list-group">
                 <li class="list-group-item">
-                    <img src="/static/images/user-1.jpg" class="mr-2" alt="User 1 Avatar" width="32" height="32">
+                    <img src="{% static 'images/user-1.jpg' %}" class="mr-2" alt="User 1 Avatar" width="32" height="32">
                     <br>
                     Hannah Rayheart
                     <span class="badge badge-primary badge-pill"> 100 posts</span>
                 </li>
                 <br>
                 <li class="list-group-item">
-                    <img src="/static/images/user-2.jpg" class="mr-2" alt="User 2 Avatar" width="32" height="32">
+                    <img src="{% static 'images/user-2.jpg' %}" class="mr-2" alt="User 2 Avatar" width="32" height="32">
                     <br>
                     Jonathan Horan
                     <span class="badge badge-primary badge-pill"> 85 posts</span>
                 </li>
                 <br>
                 <li class="list-group-item">
-                    <img src="/static/images/user-3.jpg" class="mr-2" alt="User 3 Avatar" width="32" height="32">
+                    <img src="{% static 'images/user-2.jpg' %}" class="mr-2" alt="User 3 Avatar" width="32" height="32">
                     <br>
                     Lillian Matthews
                     <span class="badge badge-primary badge-pill"> 72 posts</span>
