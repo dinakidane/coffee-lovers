@@ -32,7 +32,7 @@ CLOUDINARY_STORAGE = {
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG=True
+DEBUG=False
 
 ALLOWED_HOSTS = ['coffee-lovers-dj.herokuapp.com', 'localhost', '8000-dinakidane-coffeelovers-h24jlgr5ylx.ws-eu107.gitpod.io', '.herokuapp.com']
 
