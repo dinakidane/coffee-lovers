@@ -165,7 +165,7 @@ Whether you're seeking the perfect espresso recipe or eager to share your latest
 ## Credits
 
 - Thank you to everyone on Slack and those on Tutor support who have continously helped me during this time. It definitely has been the most challenging project so far.
-- ChatGPT was an immense and great help. It provided me with resolutions to bugs/errors and tips which led me to the right direction. 
+- ChatGPT was an immense and great help. It provided me with resolutions to bugs/errors, tips and resources which led me to the right direction. 
 
 
 
