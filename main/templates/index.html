@@ -5,7 +5,11 @@
 
 {% block content %}
     <div class="jumbotron">
-        <h1 class="display-4">Welcome to the Coffee Lover Blog!</h1>
+        {% if user.is_authenticated %}
+            <h3 class="display-4">Welcome, {{ user.username }}!</h3>
+        {% else %}
+            <h1 class="display-4">Welcome to the Coffee Lover Blog!</h1>
+        {% endif %}
         <br>
         <h3>Do you consider yourself to be a coffee lover?</h3>
         <br>
@@ -65,7 +69,23 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ comment.user.username }} - {{ comment.created_at }}</h5>
                         <p class="card-text">{{ comment.coffee_experience }}</p>
+                        {% if user.is_authenticated %}
+                            <form method="post" action="{% url 'add_reply' comment.id %}">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                                <button type="submit" class="btn btn-primary">Reply</button>
+                            </form>
+                        {% endif %}
                     </div>
+                    {% for reply in comment.replies.all %}
+                        <div class="card mb-3 ml-4">
+                            <div class="card-body">
+                                <h6 class="card-title">{{ reply.user.username }} - {{ reply.created_at }}</h6>
+                                <p class="card-text">{{ reply.coffee_experience }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                
                     {% if user.is_authenticated %}
                         {% if user.is_staff or user == comment.user %}
                             <form method="post" action="{% url 'delete_comment' comment.id %}">

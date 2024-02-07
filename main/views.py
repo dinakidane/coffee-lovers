@@ -1,11 +1,11 @@
-# views.py
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
-from .forms import CommentForm
-from .models import Comment
+from .forms import CommentForm, ReplyForm
+from .models import Comment, Reply
+
 
 def index(request):
     comments = Comment.objects.all()
@@ -68,3 +68,18 @@ def delete_comment(request, comment_id):
         comment.delete()
 
     return redirect('index')  # Redirect to the index page after deletion
+
+@login_required
+def add_reply(request, comment_id):
+    comment = get_object_or_404(Comment, id=comment_id)
+
+    if request.method == 'POST':
+        form = ReplyForm(request.POST)
+        if form.is_valid():
+            reply = form.save(commit=False)
+            reply.user = request.user
+            reply.comment = comment
+            reply.save()
+            return redirect('index')
+
+    return redirect('index')  # Handle other cases, e.g., GET requests
