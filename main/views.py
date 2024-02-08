@@ -3,8 +3,8 @@ from django.views import View
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
-from .forms import CommentForm, ReplyForm
-from .models import Comment, Reply
+from .forms import CommentForm
+from .models import Comment
 
 
 def index(request):
@@ -25,6 +25,7 @@ def add_comment(request):
         form = CommentForm()
 
     return render(request, 'index.html', {'form': form})
+
 
 class CustomRegistrationView(View):
     template_name = 'register.html'
@@ -69,17 +70,3 @@ def delete_comment(request, comment_id):
 
     return redirect('index')  # Redirect to the index page after deletion
 
-@login_required
-def add_reply(request, comment_id):
-    comment = get_object_or_404(Comment, id=comment_id)
-
-    if request.method == 'POST':
-        form = ReplyForm(request.POST)
-        if form.is_valid():
-            reply = form.save(commit=False)
-            reply.user = request.user
-            reply.comment = comment
-            reply.save()
-            return redirect('index')
-
-    return redirect('index')  # Handle other cases, e.g., GET requests
