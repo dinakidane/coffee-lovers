@@ -1,1 +1,1 @@
-web gunicorn coffeelover.wsgi
+web: gunicorn coffeelover.wsgi
