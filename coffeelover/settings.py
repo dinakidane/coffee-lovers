@@ -36,7 +36,7 @@ DEBUG=True
 
 DEBUG = os.environ.get("DEBUG")
 
-ALLOWED_HOSTS = ['coffee-lovers.herokuapp.com', 'localhost', '8000-dinakidane-coffeelovers-gmh5ghvq17p.ws-eu108.gitpod.io', '.herokuapp.com']
+ALLOWED_HOSTS = ['coffee-lovers-dj.herokuapp.com', 'localhost', '8000-dinakidane-coffeelovers-gmh5ghvq17p.ws-eu108.gitpod.io', '.herokuapp.com']
 
 
 # Application definition
