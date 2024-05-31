@@ -6,6 +6,7 @@ urlpatterns = [
     path('register/', CustomRegistrationView.as_view(), name='register'),
     path('login/', CustomLoginView.as_view(), name='login'),
     path('logout/', custom_logout, name='logout'),
+    path('post_detail/', name='blog'),
     path('add_comment/', add_comment, name='add_comment'),
     path('delete_comment/<int:comment_id>/', delete_comment, name='delete_comment'),
 ]
