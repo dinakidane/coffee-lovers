@@ -22,7 +22,7 @@ Whether you're seeking the perfect espresso recipe or eager to share your latest
 - As a user, I want to log in to my account to participate in discussions and share my favourite coffee experiences.
 - As a user, I want to know the main function of the site
 - As a user, I want to be recognised as a top contributor based on the number of quality posts I make.
-- As a user, I want to be able to delete my own comments when I want
+- As a user, I want to be able to delete and edit my own comments when I want
 - As a user, I want to access the website's content and comments without having to log in all the time
 
 ## Agile Methodology
@@ -118,6 +118,15 @@ Whether you're seeking the perfect espresso recipe or eager to share your latest
 ## Testing
 
 ![Testing](/static/images/test.png)
+
+## Wireframes
+
+Wireframes provide a visual representation of the websites layout. They outline the structure and arrangement of different elements on a page, including headers, footers, menus, content sections, and buttons. This helped and guided me towards the design.
+
+- ![Wireframe Home](/static/images/wireframe-home.png)
+- ![Wireframe Signin](/static/images/wireframe-signin.png)
+- ![Wireframe Signup](/static/images/wireframe-signin.png)
+- ![Wireframe Comments](/static/images/wireframe-comments.png)
 
 ## Frameworks and Libraries
 
