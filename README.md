@@ -247,7 +247,7 @@ Wireframes provide a visual representation of the websites layout. They outline 
 - Forking:
     - Log in to GitHub and locate the desired repository.
     - Click the 'Fork' button in the upper right corner to make a copy.
-    
+
 - Cloning:
     - Go to the repository, click on the 'Code' tab, and copy the URL from the 'Code' menu.
     - Open Git Bash or your preferred terminal, navigate to your desired directory, and run git clone followed by the copied URL.
