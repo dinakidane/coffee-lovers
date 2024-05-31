@@ -56,6 +56,22 @@ class CustomRegistrationView(View):
             return redirect('index')
         return render(request, self.template_name, {'form': form})
 
+@login_required
+def edit_comment(request, comment_id):
+    comment = get_object_or_404(Comment, id=comment_id)
+    if request.user != comment.user:
+        return redirect('comments')
+    
+    if request.method == 'POST':
+        form = CommentForm(request.POST, instance=comment)
+        if form.is_valid():
+            form.save()
+            return redirect('comments')
+    else:
+        form = CommentForm(instance=comment)
+    
+    return render(request, 'edit_comment.html', {'form': form})
+
 class CustomLoginView(View):
     template_name = 'login.html'
 
