@@ -89,19 +89,6 @@ TEMPLATES = [
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
 
-SITE_ID = 1
-
-
-MESSAGE_TAGS = {
-    messages.DEBUG: 'alert-info',
-    messages.INFO: 'alert-info',
-    messages.SUCCESS: 'alert-success',
-    messages.WARNING: 'alert-warning',
-    messages.ERROR: 'alert-danger',
-}
-
-
-ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 WSGI_APPLICATION = 'coffeelover.wsgi.application'
 
