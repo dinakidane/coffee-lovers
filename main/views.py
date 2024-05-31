@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
+from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 from .forms import CommentForm
 from .models import Comment
+
 
 def comments_view(request):
     comments = Comment.objects.filter(approved=True).order_by('-created_at')
@@ -52,8 +54,13 @@ class CustomRegistrationView(View):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
-            login(request, user)  # Log in the user after successful registration
+            login(request, user)
+            messages.success(request, 'Registration successful. Welcome!')
             return redirect('index')
+        else:
+            for field, errors in form.errors.items():
+                for error in errors:
+                    messages.error(request, f"{field}: {error}")
         return render(request, self.template_name, {'form': form})
 
 @login_required
@@ -83,12 +90,18 @@ class CustomLoginView(View):
         form = AuthenticationForm(data=request.POST)
         if form.is_valid():
             login(request, form.get_user())
+            messages.success(request, 'You have successfully logged in.')
             return redirect('index')
+        else:
+            for field, errors in form.errors.items():
+                for error in errors:
+                    messages.error(request, f"{field}: {error}")
         return render(request, self.template_name, {'form': form})
 
 @login_required
 def custom_logout(request):
     logout(request)
+    messages.success(request, 'You have successfully logged out.')
     return redirect('index')
 
 
