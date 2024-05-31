@@ -132,6 +132,9 @@ Whether you're seeking the perfect espresso recipe or eager to share your latest
 - No errors found in HTML Validator, thanks to  W3C Markup Validation Service
 -![HTML test](/static/images/html-valid.png)
 
+### CRUD Testing
+- ![CRUD](/static/images/crud.png)
+
 ## Wireframes
 
 Wireframes provide a visual representation of the websites layout. They outline the structure and arrangement of different elements on a page, including headers, footers, menus, content sections, and buttons. This helped and guided me towards the design. Credits to Balsamiq Wireframes!
