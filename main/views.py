@@ -8,7 +8,8 @@ from .models import Comment
 
 def comments_view(request):
     comments = Comment.objects.filter(approved=True).order_by('-created_at')
-    return render(request, 'comments.html', {'comments': comments})
+    form = CommentForm()  # Add the form here
+    return render(request, 'comments.html', {'comments': comments, 'form': form})
 
 def index(request):
     comments = Comment.objects.all()
