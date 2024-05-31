@@ -9,5 +9,6 @@ urlpatterns = [
     path('add_comment/', add_comment, name='add_comment'),
     path('comments/', comments_view, name='comments'),
     path('delete_comment/<int:comment_id>/', delete_comment, name='delete_comment'),
+    path('edit_comment/<int:comment_id>/', edit_comment, name='edit_comment'),
 ]
 
