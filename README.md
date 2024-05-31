@@ -45,6 +45,7 @@ Whether you're seeking the perfect espresso recipe or eager to share your latest
 ### Navbar
 
 - Coffee Lover Blog header links back to homepage, as well as the home button
+- Comments page to take users to the blog comments
 - Login button to take user to the login page
 - Register button to take user to the register page
 - Navbar present in all pages
@@ -77,11 +78,13 @@ Whether you're seeking the perfect espresso recipe or eager to share your latest
 
 - Logged in users are able to see this so they can add comments
 
+### Comments
+
 ![Comments](/static/images/comments.png)
 
 - Comments are available to see for users and non users. 
 
-- A logged in user is only able to see a delete button on their own comment
+- A logged in user is only able to see a delete and edit button on their own comment
 
 - Any visitor of the site is able to see the name of the user, as well as the date and time it was posted
 
@@ -102,7 +105,6 @@ Whether you're seeking the perfect espresso recipe or eager to share your latest
 ### Features left to implement
 
 - May need a page that includes detailed information about different types of coffees
-- May add an option to edit their comment
 - May add an option to like other comments
 - May add an option to comment underneath another user's comment directly
 
