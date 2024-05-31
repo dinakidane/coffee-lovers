@@ -6,7 +6,7 @@
 {% block content %}
     <div class="jumbotron">
         {% if user.is_authenticated %}
-            <h3 class="display-4">Welcome, {{ user.username }}!</h3>
+            <h3 class="display-4">Welcome, you're now logged in, {{ user.username }}!</h3>
         {% else %}
             <h1 class="display-4">Welcome to the Coffee Lover Blog!</h1>
         {% endif %}
