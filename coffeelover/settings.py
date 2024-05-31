@@ -32,7 +32,7 @@ CLOUDINARY_STORAGE = {
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG=False
+DEBUG=True
 
 DEBUG = os.environ.get("DEBUG")
 
@@ -89,6 +89,13 @@ TEMPLATES = [
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
 
+MESSAGE_TAGS = {
+    messages.DEBUG: 'alert-info',
+    messages.INFO: 'alert-info',
+    messages.SUCCESS: 'alert-success',
+    messages.WARNING: 'alert-warning',
+    messages.ERROR: 'alert-danger',
+}
 
 WSGI_APPLICATION = 'coffeelover.wsgi.application'
 
