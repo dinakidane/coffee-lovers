@@ -6,6 +6,9 @@ from django.contrib.auth.decorators import login_required
 from .forms import CommentForm
 from .models import Comment
 
+def comments_view(request):
+    comments = Comment.objects.filter(approved=True).order_by('-created_at')
+    return render(request, 'comments.html', {'comments': comments})
 
 def index(request):
     comments = Comment.objects.all()
@@ -20,12 +23,17 @@ def add_comment(request):
             comment = form.save(commit=False)
             comment.user = request.user
             comment.save()
-            return redirect('index')
+            return redirect('comments')
     else:
         form = CommentForm()
-
     return render(request, 'index.html', {'form': form})
 
+@login_required
+def delete_comment(request, comment_id):
+    comment = get_object_or_404(Comment, id=comment_id)
+    if request.user.is_authenticated and (request.user.is_staff or request.user == comment.user):
+        comment.delete()
+    return redirect('comments')
 
 class CustomRegistrationView(View):
     template_name = 'register.html'
@@ -61,12 +69,5 @@ def custom_logout(request):
     logout(request)
     return redirect('index')
 
-def delete_comment(request, comment_id):
-    comment = get_object_or_404(Comment, id=comment_id)
 
-    # Check if the user is an admin or the author of the comment
-    if request.user.is_authenticated and (request.user.is_staff or request.user == comment.user):
-        comment.delete()
-
-    return redirect('index')  # Redirect to the index page after deletion
 

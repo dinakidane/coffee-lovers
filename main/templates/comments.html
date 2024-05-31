@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}Comments - Coffee Lover Blog{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Comments</h2>
+    {% for comment in comments %}
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">{{ comment.user.username }} - {{ comment.created_at }}</h5>
+                <p class="card-text">{{ comment.coffee_experience }}</p>
+                {% if user.is_authenticated %}
+                    {% if user.is_staff or user == comment.user %}
+                        <form method="post" action="{% url 'delete_comment' comment.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+    {% if user.is_authenticated %}
+        <div class="card mt-4">
+            <div class="card-body">
+                <h3>Share some coffee insight below!</h3>
+                <form method="post" action="{% url 'add_comment' %}">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
