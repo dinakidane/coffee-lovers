@@ -23,11 +23,16 @@ def add_comment(request):
         if form.is_valid():
             comment = form.save(commit=False)
             comment.user = request.user
+            comment.approved = True  # Automatically approve comments for now
             comment.save()
+            print(f"Comment saved: {comment.coffee_experience}")  # Debugging statement
             return redirect('comments')
+        else:
+            print("Form is not valid")  # Debugging statement
+
     else:
         form = CommentForm()
-    return render(request, 'index.html', {'form': form})
+    return render(request, 'comments.html', {'form': form})
 
 @login_required
 def delete_comment(request, comment_id):
