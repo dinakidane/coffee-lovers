@@ -27,8 +27,8 @@
                         <form method="post" action="{% url 'delete_comment' comment.id %}">
                             {% csrf_token %}
                             <button type="submit" class="btn btn-danger">Delete</button>
-                            <a href="{% url 'edit_comment' comment.id %}" class="btn btn-secondary">Edit</a>
                         </form>
+                        <a href="{% url 'edit_comment' comment.id %}" class="btn btn-secondary">Edit</a>
                     {% endif %}
                 {% endif %}
             </div>
