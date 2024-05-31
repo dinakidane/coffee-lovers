@@ -119,9 +119,22 @@ Whether you're seeking the perfect espresso recipe or eager to share your latest
 
 ![Testing](/static/images/test.png)
 
+### Responsiveness on screens
+
+- Everything works is work efficiently on different screen sizes, as well as the buttons.
+- ![Screen Responsiveness](/static/images/screen-respon.png)
+
+### CSS Validator
+- No errors found in CSS testing, thanks to CSS W3C Validation Service
+- ![CSS test](/static/images/css-valid.png)
+
+### HTML Validator
+- No errors found in HTML Validator, thanks to  W3C Markup Validation Service
+-![HTML test](/static/images/html-valid.png)
+
 ## Wireframes
 
-Wireframes provide a visual representation of the websites layout. They outline the structure and arrangement of different elements on a page, including headers, footers, menus, content sections, and buttons. This helped and guided me towards the design.
+Wireframes provide a visual representation of the websites layout. They outline the structure and arrangement of different elements on a page, including headers, footers, menus, content sections, and buttons. This helped and guided me towards the design. Credits to Balsamiq Wireframes!
 
 - ![Wireframe Home](/static/images/wireframe-home.png)
 - ![Wireframe Signin](/static/images/wireframe-signin.png)
@@ -153,25 +166,105 @@ Wireframes provide a visual representation of the websites layout. They outline 
 ## Tools
 
 - Heroku: where the app is getting deployed 
-- ElephantSQL: PosgreSQL database
+- Codeinstitute: PosgreSQL database
 - ChatGPT: used occasionally for support, certain requirements as well as to fix bugs
 - Gitpod: where the code is based
 - Github: hosts Git repositories
 
-## Unfixed Bugs
+## Fixed Bugs
 
-- When the screen is at mobile size, the navbar turns into a dropdown feature but it isn't opening when clicked.
+- When the screen is at mobile size, the navbar turns into a dropdown feature but it wasn't opening when clicked.
+- ![Fixed bug](/static/images/fixed-bug.png)
+
 
 ## Deployment
 
-1. Go on the Heroku site and log in
-2. Click 'create new app'
-3. Create a name for the app and choose the region
-4. Go to settings and click Reveal Config Vars
-5. Input the keys and values in your env.py into the Config Vars, including PORT 8000
-6. Add buildpacks: Python
-7. Preferably, click automatic deployment so it deploys everytime git is pushed
-8. Click Deploy
+###  Deploy to Heroku
+
+- Create a New App:
+    - Log in to your Heroku account and create a new app with a unique name related to your project.
+    - Select your region and click 'Create App'.
+
+- Deploy via GitHub:
+    - Navigate to the 'Deploy' tab.
+    - Choose GitHub as the deployment method, find your project repository, and click 'Connect'.
+    - Click 'Deploy Branch' to build the app.
+    - Once the build completes successfully, click 'Open App' to view your app in the browser.
+    - Fork Repository
+
+### Forking on GitHub:
+
+- Log in to your GitHub account and find the repository you want to fork.
+- In the upper right corner, click the 'Fork' button to create a copy of the repository.
+
+### Clone Repository
+
+- Cloning via Git:
+    - Cloning a repository creates a connected copy that stays in sync with the original.
+    - To clone a repository, click the 'Code' button in the repository, then select 'Clone' from the dropdown menu.
+
+### Backend Deployment
+
+- Heroku
+    - Set Up GitHub Repository:
+        - Use the Code Institute template to create a repository and open it in GitPod.
+
+    - Install Django and Dependencies:
+        - Run commands to install Django and other necessary libraries.
+        - Create a requirements file to list these dependencies.
+
+    - Create Django Project:
+        - Set up the project and apps, then add them to the INSTALLED_APPS in settings.py.
+
+    - Run Migrations and Server:
+        - Execute migrations and start the server to ensure everything works correctly.
+
+    - Deploy to Heroku:
+        - Create a new app on Heroku.
+        - Set up and add the DATABASE_URL to Heroku's Config Vars.
+
+    - Set Environment Variables:
+        - In GitPod, create an env.py file with your database URL and secret key.
+        - Add the SECRET_KEY to Heroku's Config Vars.
+
+    - Update settings.py:
+        - Import the environment variables, set the secret key, and configure the database settings.
+
+    - Configure Cloudinary:
+        - Add the Cloudinary URL to env.py and Heroku's Config Vars.
+        - Update INSTALLED_APPS and static files settings to include Cloudinary.
+
+    - Prepare for Deployment:
+        - Add ALLOWED_HOSTS in settings.py.
+        - Create a Procfile for deployment.
+        - Commit and push your changes to GitHub.
+
+    - Final Deployment:
+        - Connect your GitHub repository to Heroku and deploy the branch.
+
+### Forking and Cloning Repository
+
+- Forking:
+    - Log in to GitHub and locate the desired repository.
+    - Click the 'Fork' button in the upper right corner to make a copy.
+    
+- Cloning:
+    - Go to the repository, click on the 'Code' tab, and copy the URL from the 'Code' menu.
+    - Open Git Bash or your preferred terminal, navigate to your desired directory, and run git clone followed by the copied URL.
+
+- Install Dependencies:
+    - In your cloned repository, install required packages with:
+        - pip3 install -r requirements.txt
+
+- Set Up Environment:
+    - Create an env.py file with the necessary variables and add it to .gitignore.
+    - Ensure these variables are also added to Heroku config vars.
+
+- Run Migrations and Server:
+    - Perform necessary migrations with:
+        - python3 manage.py migrate
+    - Start the server with:
+        - python3 manage.py runserver
 
 ## Credits
 
