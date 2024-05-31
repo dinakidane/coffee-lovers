@@ -4,6 +4,13 @@
 {% block content %}
 <div class="container mt-5">
 
+    {% if user.is_authenticated %}
+            <h3 class="display-4">Welcome, {{ user.username }}!</h3>
+        {% else %}
+            <h1 class="display-4">Welcome to the Coffee Lover Blog!</h1>
+            <h3>Log in to drop your thoughts below!</h3>
+        {% endif %}
+
     <h2>Get Brewing!</h2>
     <br>
     <p>We are thrilled to have you join the conversation on our Coffee Lover's Blog! To share your coffee experiences and
